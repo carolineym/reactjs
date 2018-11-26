@@ -1,0 +1,7 @@
+css/.DS_Store
+.DS_Store
+js/.DS_Store
+.vscode/
+node_modules/**
+package.json
+package-lock.json

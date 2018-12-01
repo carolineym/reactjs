@@ -14,20 +14,53 @@ class Counter extends Component {
     fontWeight: "bold"
   };
 
+  //conditionally render list
+  renderTags() {
+    if (this.state.tags.length === 0) return <p>There are no tags! </p>; //see screenshot for the && true false
+
+    return (
+      <ul>
+        {this.state.tags.map(tag => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+    );
+  }
+
+  // constructor() {
+  //   super();
+  //   this.handleIncrement = this.handleIncrement.bind(this);
+  // }
+
+  handleIncrement = () => {
+    // console.log("Increment Clicked", this);
+    // obj.method();
+    //function();
+
+    this.setState({ count: this.state.count + 1 });
+  };
+
   render() {
     return (
       <div>
-        {/* <img src={this.state.imageUrl} alt="" /> */}
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
-
+        <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
+        {/* <img src={this.state.imageUrl} alt="" /> */}
         {/* render a list of items */}
-        <ul>
+        {/* <ul>
           {" "}
           {this.state.tags.map(tag => (
             <li key={tag}>{tag}</li>
           ))}{" "}
-        </ul>
+        </ul> */}
+        {/* conditionally render */}
+        {/* {this.state.tags.length === 0 && "Please create a new tag"}
+        {this.renderTags()} */}
       </div>
     );
   }
